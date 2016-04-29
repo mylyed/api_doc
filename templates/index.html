@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for p in  all %}
+    平台名称：{{ p.platform_name }}
+    平台状态码解释
+    {% for s in  p.status_code.all %}
+       状态码： {{ s.status_code_value }}
+         状态码： {{ s.status_describe }}
+    {% endfor %}
+{% endfor %}
+</body>
+</html>

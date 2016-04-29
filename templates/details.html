@@ -1,0 +1,97 @@
+<script>
+   $(".menu_content h4").each(function (index) {
+        $(this).click(function () {
+            if ($(".content").eq(index).css("display") == "none") {
+                $(".content").eq(index).slideDown();
+                $(".menu_content img").eq(index).attr("src", "../static/2_03.png");
+            } else {
+                $(".content").eq(index).slideUp();
+                $(".menu_content img").eq(index).attr("src", "../static/1_03.png");
+            }
+
+        });
+    });
+
+      $(".content_hide a").each(function (index) {
+     $("#ReturnSuccessResultList").addClass("one");
+      });
+</script>
+<div class="col-md-9" >
+    <div class="title">
+        <h4 id="page_title">{{ api.api_name }}</h4>
+    </div>
+    <div class="menu_content">
+        <img src="../static/1_03.png">
+        <h4>请求参数列表</h4>
+        <div class="content " id="logistics_message" style="display: none;">
+            <table class="table table-bordered" style="font-size:14px;">
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="menu_content">
+        <img src="../static/1_03.png">
+
+        <h4 id="logistics_interface_describe">成功返回参数列表</h4>
+
+        <div class="content" id="logistics_interface"
+             style="display: none; overflow-y: auto;">
+            <table class="table table-bordered" style="font-size:14px;">
+                <thead>
+                <tr></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="menu_content">
+        <img id="result_img" src="../static/1_03.png">
+        <h4>示例</h4>
+        <div class="content " id="result_content" style="display: none;">
+            <ul class="control">
+                <li class="add" id="success_result">请求示例</li>
+                <li>成功结果示例</li>
+                <li>失败结果示例</li>
+                <div class="hidden_content" id="ReturnSuccessResultList"
+                     style="height:150px;overflow-y:auto;">
+                    <table class="table table-bordered" style="font-size:14px;">
+                        <tbody>
+                        <tr>
+                            <td>
+                               {{ api.request_example }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="hidden_content" id="ReturnFailedResultList"
+                     style="height:150px;overflow-y:auto;">
+                    <table class="table table-bordered" style="font-size:14px;">
+
+                        <tbody>
+                        <tr>
+                            <td>
+                                 {{ api.response_success_example }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div class="hidden_content" id="ReturnFailedResultList"
+                     style="height:150px;overflow-y:auto;">
+                    <table class="table table-bordered" style="font-size:14px;">
+                        <tbody>
+                        <tr>
+                            <td>
+                                 {{ api.response_fail_example }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head id="Head1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./static/bootstrap.min.css">
+    <link href="./static/Marser.css" rel="stylesheet" type="text/css">
+    <script src="./static/jquery.min.js"></script>
+    <script src="./static/bootstrap.min.js"></script>
+    <link href="./static/main.css" rel="stylesheet" type="text/css">
+    <script src="./static/main.js" type="text/javascript" charset="gbk"></script>
+    <title>渝欧-文档中心</title>
+    <title>
+    </title></head>
+<body>
+<div id="main-container">
+    <div id="main-header">
+        <div>
+            <h1><a href="./"> <img alt="" src="./static/LOGO.png"></a></h1>
+        </div>
+    </div>
+    <div id="main-body" class="body">
+        <div id="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        {% for p in  all %}
+                            {% for api_class in  p.api_class.all %}
+                                <ul class="dispaly" id="order">
+                                    <li>
+                                        <img src="./static/2_03.png">
+                                        <h4><a>
+                                            {{ p.platform_name }} {{ api_class.clas_name }}
+                                        </a></h4>
+                                    </li>
+                                    <div class="content_hide">
+                                        {% for api in  api_class.api.all %}
+                                            <h5><a onclick="api_details('{{ api.id }}')">{{ api.api_name }} </a></h5>
+                                        {% endfor %}
+                                    </div>
+                                </ul>
+
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div id="api_details"></div>
+                </div>
+            </div>
+        </div>
+        <div id="main-footer">
+            <div>
+                <a href="http://momtime.net.cn" target="_blank">西港全球购官网</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

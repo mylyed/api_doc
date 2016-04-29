@@ -1,0 +1,116 @@
+﻿ html, body
+        {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        #main-container
+        {
+            min-height: 100%;
+            position: relative;
+        }
+        #main-header
+        {
+            min-height: 64px;
+            border-bottom: 1px solid #DDD;
+            background-color: #FFF;
+            border-radius: 5px;
+        }
+        #main-header div
+        {
+            width: 960px;
+            height: 64px;
+            margin: 0 auto;
+        }
+        #main-header div h1
+        {
+            margin-top: 10px;
+            float: left;
+            width: 143px;
+        }
+        #loginul
+        {
+            margin-left: 155px;
+        }
+        #main-header div ul
+        {
+            width: 300;
+            list-style: outside none none;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 64px;
+            overflow:hidden;
+            float:right;
+        }
+        
+        #main-header div ul li a
+        {
+            display: block;
+            padding: 0 21px;
+            color: #888;
+            text-decoration: none;
+            line-height: 64px;
+        }
+        #main-header div ul li a:hover
+        {
+            text-decoration: none;
+            background-color: #EEE;
+            color: #ED5736;
+        }
+        
+        #main-header div ul li
+        {
+            float: left;
+        }
+        #main-header div ul .loginL
+        {
+            width: auto;
+            margin-left: 100px;
+        }
+        
+        #main-header div ul .loginL a
+        {
+            font-weight: 100;
+            color: #337AB7;
+            padding: 0 10px;
+        }
+        #main-header div ul .loginR a
+        {
+            font-weight: 100;
+            color: #337AB7;
+            padding: 0 10px;
+        }
+        
+        #main-body
+        {
+            height:auto;
+            padding-bottom: 65px;
+        }
+        #main-footer
+        {
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 65px;
+            background-color: #1568A2;
+        }
+        #main-footer div
+        {
+            width: 960px;
+            margin: 0 auto;
+            margin-top:16px;
+            height: 49px;
+            overflow: hidden;
+        }
+        #main-footer div a
+        {   text-decoration: none;
+            display: inline-block;
+            line-height: 30px;
+            margin:0px 10px 0px 10px;
+            color: #C4D9E7;
+        }
+         #main-footer div b
+        {
+            color: #C4D9E7;
+        }
