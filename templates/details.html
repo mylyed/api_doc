@@ -1,5 +1,5 @@
 <script>
-   $(".menu_content h4").each(function (index) {
+    $(".menu_content h4").each(function (index) {
         $(this).click(function () {
             if ($(".content").eq(index).css("display") == "none") {
                 $(".content").eq(index).slideDown();
@@ -12,20 +12,31 @@
         });
     });
 
-      $(".content_hide a").each(function (index) {
-     $("#ReturnSuccessResultList").addClass("one");
-      });
+    example = function (id) {
+        $('#result_content').find("li").each(function () {
+            $(this).removeClass('add');
+        });
+        $('#result_content').find("div").each(function () {
+            $(this).removeClass('one');
+        });
+        $('#' + id).addClass("add")
+        $('#' + id + '_d').addClass("one")
+    }
 </script>
-<div class="col-md-9" >
+<div class="col-md-9">
     <div class="title">
-        <h4 id="page_title">{{ api.api_name }}</h4>
+        <h4 id="page_title">{{ api.api_name }}({% if api.api_status == 1 %}
+            开通
+        {% else %}
+            未开通
+        {% endif %})</h4>
     </div>
     <div class="menu_content">
         <img src="../static/1_03.png">
         <h4>请求参数列表</h4>
         <div class="content " id="logistics_message" style="display: none;">
             <table class="table table-bordered" style="font-size:14px;">
-                <tbody></tbody>
+                <tbody>   {{ api.request_fields }} </tbody>
             </table>
         </div>
     </div>
@@ -40,7 +51,7 @@
                 <thead>
                 <tr></tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>   {{ api.response_fields }}</tbody>
             </table>
         </div>
     </div>
@@ -49,29 +60,29 @@
         <h4>示例</h4>
         <div class="content " id="result_content" style="display: none;">
             <ul class="control">
-                <li class="add" id="success_result">请求示例</li>
-                <li>成功结果示例</li>
-                <li>失败结果示例</li>
-                <div class="hidden_content" id="ReturnSuccessResultList"
+                <li class="add" id="request" onclick="example('request')">请求示例</li>
+                <li id="rtok" onclick="example('rtok')">成功结果示例</li>
+                <li id="rtfail" onclick="example('rtfail')">失败结果示例</li>
+                <div class="hidden_content one" id="request_d"
                      style="height:150px;overflow-y:auto;">
                     <table class="table table-bordered" style="font-size:14px;">
                         <tbody>
                         <tr>
                             <td>
-                               {{ api.request_example }}
+                                {{ api.request_example }}
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="hidden_content" id="ReturnFailedResultList"
+                <div class="hidden_content" id="rtok_d"
                      style="height:150px;overflow-y:auto;">
                     <table class="table table-bordered" style="font-size:14px;">
 
                         <tbody>
                         <tr>
                             <td>
-                                 {{ api.response_success_example }}
+                                {{ api.response_success_example }}
                             </td>
                         </tr>
                         </tbody>
@@ -79,13 +90,13 @@
 
 
                 </div>
-                <div class="hidden_content" id="ReturnFailedResultList"
+                <div class="hidden_content" id="rtfail_d"
                      style="height:150px;overflow-y:auto;">
                     <table class="table table-bordered" style="font-size:14px;">
                         <tbody>
                         <tr>
                             <td>
-                                 {{ api.response_fail_example }}
+                                {{ api.response_fail_example }}
                             </td>
                         </tr>
                         </tbody>

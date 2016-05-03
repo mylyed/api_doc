@@ -18,7 +18,7 @@ admin.site.register(StatusCode, StatusCodeAdmin)
 
 
 class ApiClassAdmin(admin.ModelAdmin):
-    list_display = ('platform', 'clas_name')
+    list_display = ('platform', 'class_name')
 
 
 admin.site.register(ApiClass, ApiClassAdmin)
@@ -30,16 +30,3 @@ class ApiAdmin(admin.ModelAdmin):
 
 admin.site.register(Api, ApiAdmin)
 
-
-class RequestFieldAdmin(admin.ModelAdmin):
-    list_display = ('api_requset', 'field_name')
-
-
-admin.site.register(RequestField, RequestFieldAdmin)
-
-
-class ResponseFieldAdmin(admin.ModelAdmin):
-    list_display = ('api_response', 'field_name')
-
-
-admin.site.register(ResponseField, ResponseFieldAdmin)
